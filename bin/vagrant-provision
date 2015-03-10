@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+#
+# Bootstraped from VagrantFile, and installs pylibukin sandbox in dev-mode.
+#
+# See https://packaging.python.org/en/latest/distributing.html
+#
+
+
+__author__="daniel.lindh@renter.se"
+__copyright__="Copyright 2015, Renter AB"
+
+
+#
+echo "Bootstrap vagrant box"
+echo
+
+echo "Install pip"
+curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python
+
+echo "Install virtualenv"
+pip install virtualenv
+
+echo "Create virtualenv"
+virtualenv /usr/local/pythonenv/pylibukin
+
+echo "Install tools to create distributions"
+source /usr/local/pythonenv/pylibukin/bin/activate
+pip install wheel
+pip install twine
