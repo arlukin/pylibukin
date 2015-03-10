@@ -4,9 +4,6 @@
 # See: https://packaging.python.org/en/latest/distributing.html#requirements-for-packaging-and-distributing
 #
 
-python setup.py sdist
-python setup.py bdist_wheel
-
 cat >> ~/.pypirc << EOF
 [distutils]
 index-servers=pypi
@@ -16,4 +13,6 @@ repository: https://pypi.python.org/pypi
 username: arlukin
 EOF
 
+python setup.py sdist
+python setup.py bdist_wheel
 twine upload dist/*
