@@ -1,5 +1,9 @@
 #!/bin/sh
 
+#
+# See: https://packaging.python.org/en/latest/distributing.html#requirements-for-packaging-and-distributing
+#
+
 python setup.py sdist
 python setup.py bdist_wheel
 
@@ -11,3 +15,5 @@ index-servers=pypi
 repository: https://pypi.python.org/pypi
 username: arlukin
 EOF
+
+twine upload dist/*
