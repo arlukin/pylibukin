@@ -1,4 +1,4 @@
-#! /usr/local/pythonenv/pylibukin/bin/python
+#! /usr/local/pythonenv/pylukinlib/bin/python
 """
 Demonstrating the login blueprint using flask-login.
 
@@ -11,7 +11,7 @@ import os
 from flask import Flask
 from flask.ext.login import login_required
 
-from pylibukin.flask.blueprint import login
+from pylukinlib.flask.blueprint import login
 
 
 app = Flask(__name__)

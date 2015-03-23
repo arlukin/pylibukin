@@ -25,6 +25,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 5001, host: 5001
 
-  config.vm.post_up_message = "pylibukin sandbox installed"
+  config.vm.post_up_message = "pylukinlib sandbox installed"
 end
 

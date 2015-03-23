@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# Bootstraped from VagrantFile, and installs pylibukin sandbox in dev-mode.
+# Bootstraped from VagrantFile, and installs pylukinlib sandbox in dev-mode.
 #
 # See https://packaging.python.org/en/latest/distributing.html
 #
@@ -22,9 +22,9 @@ echo "Install virtualenv"
 pip install virtualenv
 
 echo "Create virtualenv"
-virtualenv /usr/local/pythonenv/pylibukin
+virtualenv /usr/local/pythonenv/pylukinlib
 
 echo "Install tools to create distributions"
-source /usr/local/pythonenv/pylibukin/bin/activate
+source /usr/local/pythonenv/pylukinlib/bin/activate
 pip install wheel
 pip install twine
