@@ -7,8 +7,7 @@ Demonstrating the login blueprint using flask-login.
 __author__ = "daniel.lindh@renter.se"
 __copyright__ = "Copyright 2015, Renter AB"
 
-import os
-from flask import Flask
+from flask import Flask, url_for
 from flask.ext.login import login_required
 
 from pylukinlib.flask.blueprint import login
@@ -20,7 +19,7 @@ app.config.update(dict(
 
     # Generate a new secret key every time the wsgi are restarted. This
     # will invalidate all sessions between restarts.
-    SECRET_KEY=os.urandom(24)
+    SECRET_KEY='\xe8.\xcf_\xef\n\nQ1\xe8\xca\xcd\xef\x12\x9e\xa2\xd96_\xdeM"\x97\xde'
 ))
 
 login.init_app(app, "index", {"user": "password"})
@@ -30,7 +29,7 @@ app.register_blueprint(login.login_pages)
 @app.route('/')
 @login_required
 def index():
-    return 'Hello World! <a href="/logout">logout</a>'
+    return 'Hello World! <a href="%s">logout</a>' % url_for('login_pages.logout')
 
 
 if __name__ == '__main__':
