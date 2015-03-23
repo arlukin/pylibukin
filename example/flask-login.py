@@ -1,4 +1,4 @@
-#! /usr/local/pythonenv/pylukinlib/bin/python
+#!/usr/local/pythonenv/pylukinlib/bin/python
 """
 Demonstrating the login blueprint using flask-login.
 

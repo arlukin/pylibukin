@@ -15,16 +15,33 @@ __copyright__="Copyright 2015, Renter AB"
 echo "Bootstrap vagrant box"
 echo
 
+
 echo "Install pip"
 curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python
+
 
 echo "Install virtualenv"
 pip install virtualenv
 
+
 echo "Create virtualenv"
-virtualenv /usr/local/pythonenv/pylukinlib
+mkdir /usr/local/pythonenv
+chmod 777 /usr/local/pythonenv
+sudo -u vagrant virtualenv /usr/local/pythonenv/pylukinlib
+
 
 echo "Install tools to create distributions"
+sudo -u vagrant /bin/sh << EOF
 source /usr/local/pythonenv/pylukinlib/bin/activate
 pip install wheel
-pip install twine
+pip install --upgrade twine
+EOF
+
+
+echo "Install pylukinlib dependencies"
+yum install -y python-devel
+sudo -u vagrant /bin/sh << EOF
+source /usr/local/pythonenv/pylukinlib/bin/activate
+pip install -e /vagrant/
+EOF
+
